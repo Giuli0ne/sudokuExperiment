@@ -102,10 +102,11 @@ class Sudoku:
                     if self.possible(i, n):
                         self.sudo[i] = n
                         self.solve()
-                        self.sudo[i] = 0
+                        if(0 in self.sudo):
+                            self.sudo[i] = 0
                 return Sudoku(self.sudo)
-        self.printSudoku()
-        input("More?")
+        return Sudoku(self.sudo)
+        
 
 #print(row(sudoku,1))
 s = Sudoku(sudoku)
